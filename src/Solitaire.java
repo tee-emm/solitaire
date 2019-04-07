@@ -13,13 +13,15 @@ public class Solitaire extends Canvas implements Runnable {
 
     Image testImage;
     private Thread thread;
+    public Deck deck;
     public static boolean running = false;
 
     public Solitaire()  {
+        Deck.imgArray();
         addMouseListener(new MouseClick());
         addMouseMotionListener(new MouseMovement());
         new Window(640, 480, this);
-
+        deck = new Deck();
     }
 
     public static void main (String[] args) {
@@ -67,8 +69,9 @@ public class Solitaire extends Canvas implements Runnable {
 
         Graphics g = bs.getDrawGraphics();
         Graphics2D g2 = (Graphics2D) g;
-        g.setColor(Color.BLACK);
+        g.setColor(Color.white);
         g.fillRect(0, 0, 640, 480);
+        deck.render(g);
         g.dispose();
         bs.show();
 
