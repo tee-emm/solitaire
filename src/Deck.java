@@ -1,9 +1,19 @@
+import java.awt.*;
 import java.util.LinkedList;
 
 public class Deck
 {
 
     private LinkedList deck= new LinkedList();
+    public static Image[] visual = new Image[52];
+
+    public static void imgArray(){
+
+        for (int i = 0; i < 51; i++){
+
+        }
+
+    }
 
     Deck()
     {
