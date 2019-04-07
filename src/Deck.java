@@ -1,3 +1,4 @@
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.util.LinkedList;
 
@@ -9,11 +10,11 @@ public class Deck
 
     public static void imgArray(){
 
-        for (int i = 0; i < 51; i++){
-
+        for (int c = 0; c < 12; c++){
+            visual[c] = ImageIO.read(Deck.class.getResource("/resources/c" + c));
+            }
         }
 
-    }
 
     Deck()
     {
