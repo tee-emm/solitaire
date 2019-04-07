@@ -9,6 +9,10 @@ public abstract class Stack {
 
     }
 
+    public void movable(){
+
+    }
+
     abstract void render (Graphics g);
 
 }

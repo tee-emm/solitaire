@@ -1,8 +1,11 @@
+import java.awt.*;
+
 public class Card {
 
     private char suit;
     private int face;
     private boolean faceUp;
+
 
         Card(char s, int f) {
 
@@ -37,6 +40,11 @@ public class Card {
         {
 
             faceUp = !faceUp;
+
+        }
+
+        public void render(Graphics g)
+        {
 
         }
 
