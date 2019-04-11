@@ -3,11 +3,7 @@ import java.util.LinkedList;
 
 public abstract class Stack {
 
-    private LinkedList stack = new LinkedList();
-
-    Stack(){
-
-    }
+    public LinkedList<Card> stack = new LinkedList<>();
 
     public void movable(){
 

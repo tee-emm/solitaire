@@ -15,13 +15,31 @@ public class Solitaire extends Canvas implements Runnable {
     private Thread thread;
     public Deck deck;
     public static boolean running = false;
+    public static int WIDTH = 1280;
+    public static int HEIGHT = 720;
+
+    PlayStack[] playStacks = new PlayStack[7];
+    BuildStack[] buildStacks = new BuildStack[4];
+    DrawStack drawStack = new DrawStack();
 
     public Solitaire()  {
+
         Deck.imgArray();
         addMouseListener(new MouseClick());
         addMouseMotionListener(new MouseMovement());
-        new Window(640, 480, this);
         deck = new Deck();
+
+        for(int i = 0; i < playStacks.length; i++)
+            playStacks[i] = new PlayStack(deck.getDeck());
+
+        try {
+            testImage = ImageIO.read(Deck.class.getResource("solitaire (1).png"));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        new Window(WIDTH, HEIGHT, this);
     }
 
     public static void main (String[] args) {
@@ -70,7 +88,7 @@ public class Solitaire extends Canvas implements Runnable {
         Graphics g = bs.getDrawGraphics();
         Graphics2D g2 = (Graphics2D) g;
         g.setColor(Color.white);
-        g.fillRect(0, 0, 640, 480);
+        g.drawImage(testImage, 0, 0, null);
         deck.render(g);
         g.dispose();
         bs.show();

@@ -13,8 +13,8 @@ public class Card {
         suit = s;
         face = f;
         faceUp=false;
-        x = 0;
-        y = 0;
+        x = 100;
+        y = 140;
         this.imgIndex = imgIndex;
     }
 
@@ -57,8 +57,19 @@ public class Card {
 
         public void render(Graphics g)
         {
+            if (faceUp)
             g.drawImage(Deck.visual[imgIndex], x - Deck.visual[imgIndex].getWidth(null)/2, y -Deck.visual[imgIndex].getHeight(null)/2, null);
+            else
+                g.drawImage(Deck.cardBack, x - Deck.visual[imgIndex].getWidth(null)/2, y -Deck.visual[imgIndex].getHeight(null)/2, null);
+
         }
+
+        public void setX(int x){
+        this.x = x;
+        }
+    public void setY(int y){
+        this.y = y;
+    }
 
 
     }

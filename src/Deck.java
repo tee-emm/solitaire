@@ -7,30 +7,44 @@ public class Deck {
     public static Image[] visual = new Image[52];
     public static Image cardBack;
     private LinkedList<Card> deck = new LinkedList<>();
-
+    private int topIndex = 0;
     Deck() {
 
         reset();
 
     }
 
-    public static void imgArray() {
+    public LinkedList<Card> dealCards(int n){
+        LinkedList<Card> dealtCards = new LinkedList<>();
+    }
 
+
+    public LinkedList<Card> getDeck(){
+        return deck;
+    }
+
+    public static void imgArray() {
+        int size = 150;
         try {
 
             cardBack = ImageIO.read(Deck.class.getResource("Card Back.png"));
+            cardBack = cardBack.getScaledInstance((int)(size*0.71428571428), size, java.awt.Image.SCALE_SMOOTH);
 
             for (int c = 1; c <= 13; c++) {
-                visual[c - 1] = ImageIO.read(Deck.class.getResource("C" + c + ".png"));
+                Image image = ImageIO.read(Deck.class.getResource("C" + c + ".png"));
+                visual[c - 1] = image.getScaledInstance((int)(size*0.71428571428), size, java.awt.Image.SCALE_SMOOTH);
             }
             for (int d = 1; d <= 13; d++) {
-                visual[d + 12] = ImageIO.read(Deck.class.getResource("D" + d + ".png"));
+                Image image = ImageIO.read(Deck.class.getResource("D" + d + ".png"));
+                visual[d + 12] = image.getScaledInstance((int)(size*0.71428571428), size, java.awt.Image.SCALE_SMOOTH);
             }
             for (int h = 1; h <= 13; h++) {
-                visual[h + 25] = ImageIO.read(Deck.class.getResource("H" + h + ".png"));
+                Image image = ImageIO.read(Deck.class.getResource("H" + h + ".png"));
+                visual[h + 25] = image.getScaledInstance((int)(size*0.71428571428), size, java.awt.Image.SCALE_SMOOTH);
             }
             for (int s = 1; s <= 13; s++) {
-                visual[s + 38] = ImageIO.read(Deck.class.getResource("S" + s + ".png"));
+                Image image = ImageIO.read(Deck.class.getResource("S" + s + ".png"));
+                visual[s + 38] = image.getScaledInstance((int)(size*0.71428571428), size, java.awt.Image.SCALE_SMOOTH);
             }
         } catch (Exception e) {
             e.printStackTrace();
